@@ -1,7 +1,20 @@
+import React from 'react';
 let stars = ["⭐", "⭐ ⭐", "⭐ ⭐ ⭐", "⭐ ⭐ ⭐ ⭐", "⭐ ⭐ ⭐ ⭐ ⭐"];
 
-function RateARecipe() {
-  return stars;
+function GiveRating(props) {
+  return (
+  
+    <h3>{stars[props.rating - 1]}</h3>
+  
+  );
+}
+
+function RateARecipe(props) {
+  return (
+    <div>
+      {props.rating >= 1 && props.rating <= 5 ? <GiveRating rating={props.rating} /> : null}
+    </div>
+  );
 }
 
 export default RateARecipe;
